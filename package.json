@@ -1,0 +1,29 @@
+{
+  "name": "neweb-react-native",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "tsc && tslint --project tsconfig.json && jest --verbose --coverage",
+    "watch:test": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/newebio/neweb-react-native.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/newebio/neweb-react-native/issues"
+  },
+  "homepage": "https://github.com/newebio/neweb-react-native#readme",
+  "jest": {},
+  "devDependencies": {
+    "@types/jest": "^23.1.2",
+    "coveralls": "^3.0.1",
+    "jest": "^23.2.0",
+    "tslint": "^5.10.0",
+    "typescript": "^2.9.2"
+  }
+}
