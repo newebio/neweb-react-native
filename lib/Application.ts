@@ -129,9 +129,7 @@ export class Application extends React.Component<
         clientTransport.onConnect.next();
     }
     public render() {
-        return this.state.component
-            ? React.createElement(this.state.component)
-            : null;
+        return this.state.component ? this.state.component : null;
     }
 }
 export default Application;
