@@ -16,11 +16,14 @@ import {
 import { frameBy } from "neweb-react";
 import React = require("react");
 import { Subject } from "rxjs";
+import { History } from "./History";
+import HistoryContext from "./HistoryContext";
 export class Application extends React.Component<
     {
         ModuleResolver: {
             resolve: (path: string) => any;
         };
+        History?: typeof History;
         url: string;
     },
     {
@@ -28,6 +31,7 @@ export class Application extends React.Component<
     }
 > {
     public state: any = { component: undefined };
+    public history: History;
     public componentWillMount() {
         const serverTransport = {
             onConnect: new Subject<IServerTransportClient>(),
@@ -127,9 +131,19 @@ export class Application extends React.Component<
         });
         serverTransport.onConnect.next(serverTransportClient);
         clientTransport.onConnect.next();
+        const HistoryClass = this.props.History ? this.props.History : History;
+        this.history = new HistoryClass({
+            url: this.props.url,
+            navigate: (url) => client.emitNavigate.next({ url }),
+        });
     }
     public render() {
-        return this.state.component ? this.state.component : null;
+        return this.state.component
+            ? React.createElement(HistoryContext.Provider, {
+                  value: this.history,
+                  children: this.state.component,
+              })
+            : null;
     }
 }
 export default Application;

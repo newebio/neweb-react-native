@@ -1,6 +1,6 @@
 {
   "name": "neweb-react-native",
-  "version": "0.0.3",
+  "version": "0.0.7",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -22,14 +22,17 @@
   "devDependencies": {
     "@types/jest": "^23.1.2",
     "@types/react": "^16.4.2",
+    "@types/react-native": "^0.55.25",
     "coveralls": "^3.0.1",
     "jest": "^23.2.0",
     "react": "^16.4.1",
+    "react-native": "^0.55.4",
     "tslint": "^5.10.0",
     "typescript": "^2.9.2"
   },
   "peerDependencies": {
     "@types/react": "^16.4.2",
+    "@types/react-native": "^0.55.25",
     "react": "^16.4.1"
   },
   "dependencies": {
